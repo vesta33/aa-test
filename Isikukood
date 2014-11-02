@@ -1,0 +1,37 @@
+""" 1. = sugu ja sünni nn. "sajand" (praegune vahemik 1...6)
+2. ja 3. = sünniaasta (00...99)
+4. ja 5. = sünnikuu (01...12)
+6. ja 7. = sünnikuupäev (01...31)
+8., 9. ja 10. number = järjekorranumber samal päeval sündinute eristamiseks (000...999). Enne 2013. a sündinute puhul võib sisaldada haigla tunnust.
+11. = kontrollnumber (0...9) """
+from random import randint
+
+kood = []
+for i in range(1,12):
+    kood.append(0)
+
+for number in kood:
+    kood[0] = randint(1,6)
+    kood[1] = randint(0,9)
+    kood[2] = randint(0,9)
+    kood[3] = randint(0,1)
+    if kood[3] == 0:
+        kood[4] = randint(1,9)
+    if kood[3] == 1:
+        kood[4] = randint(0,2)
+    kood[5] = randint(0,3)
+    if kood[5] == 0:
+        kood[6] = randint(1,9)
+    if kood[5] == 1 or kood[5] == 2:
+        kood[6] = randint(0,9)
+    if kood[5] == 3:
+        kood[6] = randint(0,1)
+    kood[7] = randint(0,9)
+    kood[8] = randint(0,9)
+    kood[9] = randint(0,9)
+    kood[10] = randint(0,9)
+
+#print (kood)
+print ("Isikukood: " + "".join(str(x) for x in kood))
+
+
