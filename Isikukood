@@ -31,7 +31,7 @@ for number in kood:
     kood[9] = randint(0,9)
     kood[10] = randint(0,9)
 
+
+#zfill saab kasutada
 #print (kood)
 print ("Isikukood: " + "".join(str(x) for x in kood))
-
-
