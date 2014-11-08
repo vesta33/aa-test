@@ -44,7 +44,7 @@ def generate_million():
                                   'FORENAME':random.choice(fornames),
                                   'SURNAME':random.choice(lastnames),
                                   'GENDER':random.choice(gender),
-                                  'DATE_OF_BIRTH':'%02d.%02d.%s' % (int(codes[i][5:7]), int(codes[i][3:5]),int('19' + codes[i][1:3])),
+                                  'DATE_OF_BIRTH':'%02d.%02d.%s' % (int(codes[i][5:7]), int(codes[i][3:5]),int('18' + codes[i][1:3])),
                                   })
         finally:
             f.close()
