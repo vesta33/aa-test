@@ -4,7 +4,6 @@ import Isikukood_new
 import datetime
 import cProfile
 import csv
-import codecs
 import random
 
 def generate_idcode(number, days):
@@ -13,15 +12,18 @@ def generate_idcode(number, days):
     first_ten = (str(Isikukood_new.gender(year)) + startdate.strftime('%Y%m%d')[2:] + str(number).zfill(3))
     return first_ten + str(Isikukood_new.control_code(first_ten))
 
-def read_file(filename):
-       with open(filename, 'r', encoding='utf-8') as file_read:
+def read_file(file):
+    with open(file, 'r', encoding='utf-8') as file_read:
+        forname = []
+        lastname = []
 
-                fornames = []
-                lastnames = []
-                for line in file_read:
-                    head, sep, tail = line.partition(', ')
-                    return fornames.append(head), lastnames.append(tail[:-2])
+        for line in file_read:
+                head, sep, tail = line.partition(', ')
+                forname.append(head)
+                lastname.append(tail[:-1])
+    return forname, lastname
 
+#print (read_file('userNames.csv'))
 
 def generate_million():
     codes = []
@@ -46,7 +48,7 @@ def generate_million():
                 for line in file_read:
                     head, sep, tail = line.partition(', ')
                     fornames.append(head)
-                    lastnames.append(tail[:-2])
+                    lastnames.append(tail[:-1])
 
                 gender = ['F', 'M']
                 for i in range(len(codes)):
